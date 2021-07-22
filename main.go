@@ -3,6 +3,7 @@ package main
 import (
 	"io/ioutil"
 	"os"
+	"path/filepath"
 	"strings"
 	"text/template"
 )
@@ -11,11 +12,19 @@ type TemplateContext struct {
 	Args map[string]string
 }
 
+func resolveTemplateName(name string) (string, error) {
+	return filepath.Abs(strings.Replace(name, ".", "/", -1))
+}
+
 func main() {
 	if len(os.Args) < 2 {
-		panic("need a filename")
+		panic("need a template filename")
 	}
-	filename := os.Args[1]
+	filename, err := resolveTemplateName(os.Args[1])
+    if err != nil {
+        panic(err)
+    }
+    filename += ".tmpl"
 	args := make(map[string]string)
 	if len(os.Args) >= 3 {
 		_args := os.Args[2:]
