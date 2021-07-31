@@ -1,0 +1,33 @@
+<head>
+    <title> GG Code Generation</title>
+<head>
+
+
+<body>
+    <label for="template">Template: </label><br>
+    <input type="text" id="template" name="template"><br>
+    <label for="args">args</label><br>
+    <input type="text" id="args" name="args">
+    <button id='generate'>Generate! </button>
+
+    <div id='output'>
+
+    </div
+</body>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.1/mustache.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $("#generate").on('click', function() {
+        var template_name = document.getElementById('template').value;
+        console.log('https://raw.githubusercontent.com/amirrezaask/gg/master/'+template_name);
+        fetch('https://raw.githubusercontent.com/amirrezaask/gg/master/'+template_name).then(response=> {
+            response.text().then(template => {
+                var text = Mustache.render(template, {
+                });
+                document.getElementById('output').innerText = text;
+            });
+        });
+    });
+</script>
