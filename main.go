@@ -15,16 +15,19 @@ type TemplateContext struct {
 func resolveTemplateName(name string) (string, error) {
 	return filepath.Abs(strings.Replace(name, ".", "/", -1))
 }
+func Make(name string) (string, error) {
+
+}
 
 func main() {
 	if len(os.Args) < 2 {
 		panic("need a template filename")
 	}
 	filename, err := resolveTemplateName(os.Args[1])
-    if err != nil {
-        panic(err)
-    }
-    filename += ".tmpl"
+	if err != nil {
+		panic(err)
+	}
+	filename += ".gg"
 	args := make(map[string]string)
 	if len(os.Args) >= 3 {
 		_args := os.Args[2:]
