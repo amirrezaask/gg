@@ -1,31 +1,31 @@
-package {{ .Args.package }}
+package {{ package }}
 
 import (
     "github.com/labstack/echo/v4"
 )
 
-type {{ .Args.name }}Controller struct {
+type {{ name }}Controller struct {
 
 }
 
 
-func (c *{{ .Args.name }}Controller) Get(ctx echo.Context) error {
+func (c *{{ name }}Controller) Get(ctx echo.Context) error {
 
 }
 
-func (c *{{ .Args.name }}Controller) Post(ctx echo.Context) error {
+func (c *{{ name }}Controller) Post(ctx echo.Context) error {
 
 }
 
-func (c *{{ .Args.name }}Controller) Put(ctx echo.Context) error {
+func (c *{{ name }}Controller) Put(ctx echo.Context) error {
 
 }
 
-func (c *{{ .Args.name }}Controller) Patch(ctx echo.Context) error {
+func (c *{{ name }}Controller) Patch(ctx echo.Context) error {
 
 }
 
-func (c *{{ .Args.name }}Controller) Delete(ctx echo.Context) error {
+func (c *{{ name }}Controller) Delete(ctx echo.Context) error {
 
 }
 
