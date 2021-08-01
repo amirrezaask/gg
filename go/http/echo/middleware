@@ -1,0 +1,6 @@
+func {{ name }}(next echo.HandlerFunc) echo.HandlerFunc {
+    return func(ctx echo.Context) {
+        // your middleware logic goes here
+        next(ctx)
+    }
+}
